@@ -49,15 +49,23 @@ public class PartiQuebecois {
 					}
 					break;
 				case 2:
-
+					/*
+					 * case 2: This operation allows user to update voters details in the system.
+					 */
 					if (LoginManager.isAutorized(LoginManager.Level.LOW, scanner)) {
 						updateVoteDetails();
 					}
 					break;
 				case 3:
+					/*
+					 * case 3: Displays the voter details that belong to same pcode.
+					 */
 					findByPcode();
 					break;
 				case 4:
+					/*
+					 * case 4: Displays the voter details that are under user given age.
+					 */
 					findByAge();
 					break;
 				case 5:
@@ -74,11 +82,15 @@ public class PartiQuebecois {
 						"Sorry! an error encountered while processing your last request, Please try again! Error Details:%s",
 						ex.toString()));
 			}
-
 		}
-
 	}
 
+	/*
+	 * findByPcode: Filters available voters based on the pcode and displays the
+	 * results
+	 * 
+	 * @return :
+	 */
 	public void findByPcode() {
 		System.out.println("Please enter pcode:");
 		char[] pcode = scanner.nextLine().trim().toCharArray();
@@ -89,6 +101,11 @@ public class PartiQuebecois {
 		}
 	}
 
+	/*
+	 * findByAge: Filters available voters based on the age and displays the results
+	 * 
+	 * @return :
+	 */
 	public void findByAge() {
 		System.out.println("Please enter age:");
 		byte age = Byte.parseByte(scanner.nextLine().trim());
@@ -99,6 +116,11 @@ public class PartiQuebecois {
 		}
 	}
 
+	/*
+	 * updateVoteDetails: Find the voter by voterID, and allows update details.
+	 * 
+	 * @return :
+	 */
 	public void updateVoteDetails() {
 		boolean retry = true;
 		while (retry) {
@@ -169,6 +191,12 @@ public class PartiQuebecois {
 		}
 	}
 
+	/*
+	 * addVotersOperation: Adds new voters to the system based on the space
+	 * availability
+	 * 
+	 * @return :
+	 */
 	public void addVotersOperation() {
 		int availableSlots = (int) (numberOfVoters - Voter.findNumberOfCreatedVoters());
 		System.out.println("Please enter the number of voters you want to enter");
