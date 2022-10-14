@@ -1,3 +1,8 @@
+//--------------------------------------------------
+//Assignment 2A
+//©Ozwin Neel Lobo
+//Written by: Ozwin Neel Lobo - 40228757
+//--------------------------------------------------
 import java.util.Arrays;
 
 public class Voter {
@@ -67,11 +72,11 @@ public class Voter {
 	}
 
 	public String toString() {
-		return String.format("Id: %d \n Name: %s \n Age: %d \n Email:%s \n Pcode:%s", voterID, voterName, voterAge,
-				voterEmail, voterPcode);
+		return String.format(" Id:%d \n Name: %s \n Age: %d \n Email:%s \n Pcode:%s\n", voterID, voterName, voterAge,
+				voterEmail, new String(voterPcode));
 	}
 	public boolean equals(Voter voter) {
-		if(this.voterID==voter.getVoterID() && this.voterPcode.equals(voter.getVoterPcode()))
+		if(this.voterID==voter.getVoterID() && Arrays.equals(this.voterPcode, voter.getVoterPcode()))
 				return true;
 		return false;
 	}
